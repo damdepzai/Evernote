@@ -16,7 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
 
+Route::get('/login-google','LoginSocialiteController@LoginGoogle')->name('login.google');
+Route::get('/google-callback', 'LoginSocialiteController@loginGoogleCallback')->name('google.callback');
+Route::get('/login-facebook','LoginSocialiteController@LoginFacebook')->name('login.facebook');
+Route::get('/facebook-callback', 'LoginSocialiteController@loginFacebookCallback')->name('facebook.callback');
+
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('{path}', function () {
+    return view('home');
+})->where('path', '^((?!api).)*$');
+Route::prefix('api')->group(function () {
+    Route::get('/logout', 'HomeController@Logout');
+    Route::get('/me', 'HomeController@me');
+});

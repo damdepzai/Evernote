@@ -10,7 +10,6 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <!-- Fonts -->
@@ -78,10 +77,11 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
+        <main class="main">
             @yield('content')
         </main>
     </div>
+
 </body>
 </html>
+

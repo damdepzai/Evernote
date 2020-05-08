@@ -46,7 +46,8 @@
                             <!-- Social Login -->
                             <div class="social-login">
                                 <span>Login with</span>
-                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a><a href="#" class="google"><i class="fa fa-google"></i></a>
+                                <a href="{{route('login.facebook')}}" class="facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="{{route('login.google')}}" class="google"><i class="fa fa-google"></i></a>
                             </div>
                             <!-- /Social Login -->
 
