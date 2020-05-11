@@ -45,12 +45,11 @@
         data(){
             return{
                 user:{}
-
             }
         },
         methods:{
             logOut(){
-                axios.get('http://127.0.0.1:8000/api/logout')
+                axios.get('api/logout')
                 .then( res =>{
                     location.reload();
                 })
@@ -59,10 +58,9 @@
                 })
             },
             getInformation(){
-                axios.get('http://127.0.0.1:8000/api/me')
+                axios.get('api/me')
                     .then( res =>{
                         this.user=res.data.data;
-                        console.log(res.data.data);
                     })
                     .catch(err =>{
                         console.log(err)
