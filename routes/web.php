@@ -30,4 +30,11 @@ Route::get('{path}', function () {
 Route::prefix('api')->group(function () {
     Route::get('/logout', 'HomeController@Logout');
     Route::get('/me', 'HomeController@me');
+
+    Route::group(['prefix'=>'note'],function(){
+       Route::get('/list','NoteController@index');
+       Route::post('/create','NoteController@store');
+       Route::delete('/delete/{id}','NoteController@destroy');
+
+    });
 });
