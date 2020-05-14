@@ -31,6 +31,9 @@ Route::prefix('api')->group(function () {
     Route::get('/logout', 'HomeController@Logout');
     Route::get('/me', 'HomeController@me');
 
+    Route::post('search','ShareController@search');
+    Route::post('share','ShareController@store');
+
     Route::group(['prefix'=>'note'],function(){
        Route::get('/list','NoteController@index');
        Route::post('/create','NoteController@store');

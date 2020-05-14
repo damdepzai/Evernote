@@ -40,6 +40,7 @@
 </template>
 
 <script>
+    import EventBus from "../EventBus";
     export default {
         name: "navbar",
         data(){
@@ -61,6 +62,7 @@
                 axios.get('api/me')
                     .then( res =>{
                         this.user=res.data.data;
+                        EventBus.$emit('user',  this.user);
                     })
                     .catch(err =>{
                         console.log(err)

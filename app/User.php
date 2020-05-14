@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Share;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -37,7 +38,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
     public function notes(){
-        return $this->hasMany(Note::class);
+        return $this->hasMany(Note::class,'create_by');
+    }
+
+    public function share()
+    {
+        return $this->hasMany(Share::class,'create_by');
     }
 }
